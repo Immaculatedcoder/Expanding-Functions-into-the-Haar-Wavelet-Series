@@ -29,7 +29,7 @@ The parameter $j = 0,1, \ldots ,J$ and $k = 0,1, \ldots ,m - 1$(where $m=2^j$) i
 The index $i$ is calculated from the formula $i=m+k+1$. Where $i=2$ is the minimal and $i=2(2^J)$ is the maximal.
 
 
-The i-th Haar wavelet is defined as
+The i-th $(i>1)$ Haar wavelet is defined as
 
 $$
 h_i(x) = \begin{cases}
@@ -49,7 +49,7 @@ and
 
 $$
  h_1(x) = \begin{cases}
-        1, & \text{for } x \in [a,b), \\
+        1, & \text{for } x \in [a,b], \\
         0, & \text{otherwise } 
     \end{cases}
 $$
@@ -58,4 +58,43 @@ $$
 MATLAB R2022 or later
 
 ## Project Structure
+
+1. Haar.m: Haar function - This function is used to generate the wavelet function for any a<=x<=b
+2. ExpandHaarSeries.m: This function reconstructs any function $f$ using Haar wavelets as a basis. Larger $J$ gives a better approximation.
+3. HaarMain.m: A MATLAB script that shows how to implement the two functions.
+
+## Results
+
+Result 1: Eight First Haar Wavelets
+
+
+| <img src="src/EightHaar.png" alt="Image 1" style="width:100%;"/> |
+|-----------------------------------------------------------------|
+
+Result 2: Expanding Functions into wavelets series
+
+Let $f(x) = \sqrt{x}$  
+
+| <img src="src/g_recon.png" alt="Image 1" style="width:100%;"/> | <img src="src/coeffs_g.png" alt="Image 2" style="width:100%;"/> |
+|----------------------------------------------------------------|-----------------------------------------------------------------|
+| Plot of Reconstrction                                          | Plot of Coefficients, $J=4$                                     |
+
+
+Let 
+
+$$ f(x) = \begin{cases}
+        \frac{|x|}{x}, & \text{for } x \ne 0, \\
+        0, & x = 0 
+    \end{cases}
+    $$
+
+| <img src="src/f_recon.png" alt="Image 1" style="width:100%;"/> | <img src="src/coeffs_f.png" alt="Image 2" style="width:100%;"/> |
+|----------------------------------------------------------------|-----------------------------------------------------------------|
+| Plot of Reconstrction                                          | Plot of Coefficients, $J=9$                                     |
+ 
+
+## References
+
+Lepik, Ü., & Hein, H. (2014). *Haar wavelets*. In *Haar wavelets: with applications* (pp. 7-20). Cham: Springer International Publishing.
+
 
